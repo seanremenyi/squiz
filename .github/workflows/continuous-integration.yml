@@ -1,4 +1,4 @@
-name: continuous integration
+name: CI/CD
 
 on:
   push:
@@ -21,3 +21,35 @@ jobs:
       - name: Run Tests
         run: |
           python -m unittest discover tests/
+  deployment:
+    needs: test_suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fresh clone & repo install
+        uses: appleboy/ssh-action@master
+        with:
+          host: 54.163.73.61
+          username: github-actions
+          key: ${{ SSH_KEY }}
+          port: 22
+          script: |
+            rm -rf squiz
+            git clone https://github.com/seanremenyi/squiz.git
+            python3.8 -m venv /home/github-actions/squiz/venv
+            /home/github-actions/squiz/venv/bin/pip instal -r requirements.txt
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
