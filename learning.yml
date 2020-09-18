@@ -1,0 +1,20 @@
+# key: "value"
+
+# names:
+#   - gary
+#   - todd
+#   - mary
+#   - sure
+
+# names: [gary, todd, mary, sue]
+
+# my_multiline_string: |
+#     This is a multiline
+#     string and will be kept
+#     this way during interpretation
+
+
+# my_multiline_string: >
+#     This is a multiline string and will be kept this way during interpretation
+
+
